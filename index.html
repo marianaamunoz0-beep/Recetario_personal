@@ -2,95 +2,67 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Ícono de la app -->
+  <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+
+  <!-- Configuración de Meta etiquetas para PWA -->
+  <meta name="theme-color" content="#FB314E">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+
+  <!-- Meta etiquetas PWA para Apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="img/fav.png">
+  <link rel="apple-touch-startup-image" href="img/fav.png">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
   <title>Recetario Personal</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:Arial, Helvetica, sans-serif;background:#fafafa;color:#333;line-height:1.5;}
-    header{background:#fff;border-bottom:1px solid #ccc;position:sticky;top:0;z-index:20;}
-    header .container{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;}
-    header h1{font-size:1.3rem;color:#b23;}
-    nav ul{list-style:none;display:flex;gap:14px;}
-    nav a{text-decoration:none;color:#333;padding:6px 8px;border-radius:6px;}
-    nav a:hover{background:#f0f0f0;}
-
-    /* Slider / hero */
-    .hero{background:#4a3ce7;color:#fff;padding:40px 0;text-align:center;}
-    .hero h2{font-size:1.6rem;}
-
-    /* Productos (aquí mostramos las recetas existentes) */
-    .section{max-width:1100px;margin:30px auto;padding:0 16px;}
-    .section h3{margin-bottom:14px;font-size:1.3rem;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
-    .card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:18px;}
-    .card h4{margin-bottom:8px;font-size:1rem;color:#b23;}
-    .card p{font-size:0.9rem;}
-
-    /* Videos (aquí serán más recetas) */
-    .videos .thumb{background:#eee;height:120px;border-radius:6px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#999;}
-
-    /* Formulario nueva receta */
-    form{background:#fff;border:1px solid #ddd;border-radius:8px;padding:18px;display:grid;gap:10px;}
-    label{font-weight:bold;}
-    input[type="text"],textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;font-size:0.9rem;}
-    textarea{min-height:80px;resize:vertical;}
-    button{background:#b23;color:#fff;padding:10px 14px;border:none;border-radius:6px;cursor:pointer;font-weight:bold;}
-    button:hover{background:#a11;}
-
-    footer{background:#222;color:#fff;padding:30px 16px;margin-top:40px;}
-    footer .container{max-width:1100px;margin:auto;text-align:center;}
-    footer a{color:#fff;margin:0 8px;text-decoration:none;}
-  </style>
+  <link rel="stylesheet" href="recetas.css">
 </head>
 <body>
 
-<header>
+<!-- ====== HEADER ====== -->
+<header id="main-header">
   <div class="container">
+    <a href="#inicio">
+      <img src="img/img1.jpeg" alt="Logo Recetario" id="logo">
+    </a>
     <h1>Recetario Personal</h1>
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#recetas">Recetas</a></li>
-        <li><a href="#videos">Más Recetas</a></li>
+        <li><a href="#ideas">Más Recetas</a></li>
+        <li><a href="#videos-recetas">Videos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<!-- SLIDER / HERO -->
+<div class="clearfix"></div>
+
+<!-- ====== HERO / SLIDER ====== -->
 <section class="hero" id="inicio">
+  <h2>Bienvenido a tu Recetario</h2>
   <div class="carousel">
     <div class="slides">
-      <img src="https://i.blogs.es/ff3564/ensalada-quinoa/1366_2000.jpg" alt="Receta 1" width="200" height="120">
-      <img src="https://i.blogs.es/ff3564/ensalada-quinoa/1366_2000.jpg" alt="Receta 2" width="200" height="120">
-      <img src="https://i.blogs.es/ff3564/ensalada-quinoa/1366_2000.jpg" alt="Receta 3" width="200" height="120">
+      <img src="img/img1.jpeg" alt="Receta 1" width="200" height="120">
+      <img src="img/img2.webp" alt="Receta 2" width="200" height="120">
+      <img src="img/img3.jpeg" alt="Receta 3" width="200" height="120">
+      <img src="img/img4.jpg" alt="Receta 4" width="200" height="120">
+      <img src="img/img5.jpeg" alt="Receta 5" width="200" height="120">
+      <img src="img/img6.jpeg" alt="Receta 6" width="200" height="120">
     </div>
   </div>
 </section>
 
-<style>
-  .carousel {
-    overflow-x: auto; /* Permite desplazamiento horizontal */
-    white-space: nowrap; /* Mantiene imágenes en línea */
-    padding: 10px;
-  }
-
-  .slides img {
-    display: inline-block;
-    margin-right: 10px; /* Espacio entre imágenes */
-    border-radius: 8px;
-    transition: transform 0.3s;
-  }
-
-  .slides img:hover {
-    transform: scale(1.1); /* Efecto zoom al pasar el mouse */
-  }
-</style>
-
-
-
-<!-- RECETAS existentes -->
+<!-- ====== RECETAS GUARDADAS ====== -->
 <section class="section" id="recetas">
   <h3>Recetas Guardadas</h3>
   <div class="grid">
@@ -102,100 +74,94 @@
       <h4><a href="recetas/receta2.html">Receta 2</a></h4>
       <p>Descripción breve de la Receta 2.</p>
     </div>
-    <!-- Agregar más recetas aquí -->
   </div>
 </section>
 
-<!-- MÁS RECETAS (estilo Videos) -->
-<section class="section videos" id="videos">
+<!-- ====== MÁS IDEAS ====== -->
+<section class="section videos" id="ideas">
   <h3>Otras Ideas</h3>
   <div class="grid">
     <div class="card">
-      <div class="thumb">Imagen</div>
+      <div class="thumb">
+        <img src="img/img1.jpeg" alt="Receta especial">
+      </div>
       <h4>Receta especial</h4>
       <p>Pequeña explicación de la receta.</p>
     </div>
     <div class="card">
-      <div class="thumb">Imagen</div>
+      <div class="thumb">
+        <img src="img/img2.webp" alt="Postre rápido">
+      </div>
       <h4>Postre rápido</h4>
       <p>Pequeña explicación de la receta.</p>
     </div>
     <div class="card">
-      <div class="thumb">Imagen</div>
+      <div class="thumb">
+        <img src="img/img3.jpeg" alt="Bebida refrescante">
+      </div>
       <h4>Bebida refrescante</h4>
       <p>Pequeña explicación de la receta.</p>
     </div>
   </div>
 </section>
 
-<!-- FORMULARIO NUEVA RECETA -->
+<!-- ====== FORMULARIO NUEVA RECETA ====== -->
 <section class="section" id="nueva-receta">
   <h3>Agregar Nueva Receta</h3>
-  <form>
+  <form action="#" method="POST">
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre">
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la receta">
 
     <label for="ingredientes">Ingredientes:</label>
-    <textarea id="ingredientes" name="ingredientes"></textarea>
+    <textarea id="ingredientes" name="ingredientes" placeholder="Lista de ingredientes"></textarea>
 
     <label for="instrucciones">Instrucciones:</label>
-    <textarea id="instrucciones" name="instrucciones"></textarea>
+    <textarea id="instrucciones" name="instrucciones" placeholder="Paso a paso de la receta"></textarea>
 
     <button type="submit">Guardar Receta</button>
   </form>
 </section>
 
-<!-- VIDEO -->
- <section id="videos">
-  <h2>Videos de Recetas</h2>
-  
-  <div>
-    <iframe width="320" height="180" src="https://www.youtube.com/embed/1APZ2a6M_j8" 
-            title="Ensalada de Quinoa" frameborder="0" allowfullscreen></iframe>
-    <p>Ensalada de Quinoa</p>
-  </div>
-  
-  <div>
-    <iframe width="320" height="180" src="https://www.youtube.com/embed/KJ5eVd1sQZs" 
-            title="Tacos de Pollo" frameborder="0" allowfullscreen></iframe>
-    <p>Tacos de Pollo</p>
-  </div>
-  
-  <div>
-    <iframe width="320" height="180" src="https://www.youtube.com/embed/3U1bRkZ3Yos" 
-            title="Smoothie Saludable" frameborder="0" allowfullscreen></iframe>
-    <p>Smoothie Saludable</p>
+<!-- ====== VIDEOS DE RECETAS ====== -->
+<section class="section" id="videos-recetas">
+  <h3>Videos de Recetas</h3>
+  <div class="videos-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/1APZ2a6M_j8" title="Ensalada de Quinoa" frameborder="0" allowfullscreen></iframe>
+      <p>Ensalada de Quinoa</p>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/KJ5eVd1sQZs" title="Tacos de Pollo" frameborder="0" allowfullscreen></iframe>
+      <p>Tacos de Pollo</p>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/3U1bRkZ3Yos" title="Smoothie Saludable" frameborder="0" allowfullscreen></iframe>
+      <p>Smoothie Saludable</p>
+    </div>
   </div>
 </section>
 
-
-<!-- CONTACTO -->
-<footer id="footer">
+<!-- ====== FOOTER / CONTACTO ====== -->
+<footer id="contacto">
   <div class="container">
-    <h2 class="subheader">Contacto</h2>
-    <p>Enviame un mensaje en cualquiera de estas redes sociales :)</p>
+    <h2>Contacto</h2>
+    <p>Envíame un mensaje en cualquiera de estas redes sociales :)</p>
     <ul id="redes">
-      <li>
-        <a href="">
-          <img src="https://th.bing.com/th/id/R.1fe0509568a6dffcd40e0f45e4c388b3?rik=w6lA%2ftmd0Dalsw&pid=ImgRaw&r=0" width="50" height="50"/>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <img src="https://tse3.mm.bing.net/th/id/OIP.oo9bI8v6wsoACVWdSsUO3AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" width="50" height="50"/>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <img src="img/wa.png" />
-        </a>
-      </li>
+      <li><a href="#"><img src="https://th.bing.com/th/id/R.1fe0509568a6dffcd40e0f45e4c388b3?rik=w6lA%2ftmd0Dalsw&pid=ImgRaw&r=0" alt="Facebook"></a></li>
+      <li><a href="#"><img src="https://tse3.mm.bing.net/th/id/OIP.oo9bI8v6wsoACVWdSsUO3AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Instagram"></a></li>
+      <li><a href="#"><img src="https://wallpapercave.com/wp/wp7155552.jpg" alt="Insta"></a></li>
     </ul>
   </div>
 </footer>
-</body>
-</html>
 
+<!-- Registro del Service Worker -->
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(reg => console.log("Service Worker registrado:", reg.scope))
+      .catch(err => console.error("Error en SW:", err));
+  }
+</script>
 
 </body>
 </html>

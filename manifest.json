@@ -1,0 +1,21 @@
+{
+  "name": "Recetario Personal",
+  "short_name": "Recetario",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FB314E",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "img/fav.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/fav.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
