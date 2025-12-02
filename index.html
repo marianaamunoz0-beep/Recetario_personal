@@ -4,55 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="recetas.css">
-  <title>Simulación de Notificación Push WhatsApp</title>
-</head>
-<body style="font-family: Arial; text-align:center; margin-top:60px;">
-
-    <h2>💬 Notificación tipo WhatsApp</h2>
-    <p>Haz clic para simular una notificación como si fuera un mensaje nuevo.</p>
-
-    <button id="btnNotificar"
-        style="background:#25D366;color:white;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;">
-        Mostrar Notificación WhatsApp
-    </button>
-
-    <script>
-        // Registrar el Service Worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(() => console.log('✔️ Service Worker registrado'))
-                .catch(err => console.error('❌ Error al registrar SW', err));
-        }
-
-        // Evento al presionar el botón
-document.getElementById('btnNotificar').addEventListener('click', async () => {
-
-    const permiso = await Notification.requestPermission();
-    if (permiso !== 'granted') {
-        alert('Permite las notificaciones para continuar.');
-        return;
-    }
-
-    // Obtener registro del Service Worker
-    const reg = await navigator.serviceWorker.getRegistration();
-
-    // Mostrar notificación simulando mensaje de WhatsApp
-    reg.showNotification('WhatsApp', {
-        body: '📩 Nuevo mensaje de Mariana Muñoz: “Hola, ¿todo bien con el proyecto?”',
-        icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
-        badge: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
-        image: 'https://cdn.pixabay.com/photo/2021/05/25/09/13/chat-6283454_1280.png',
-        vibrate: [200, 100, 200],
-        actions: [
-            { action: 'responder', title: 'Responder' },
-            { action: 'ver', title: 'Ver mensaje' }
-        ],
-        tag: 'whatsapp-message',
-        renotify: true
-    });
-
-});
-</script>
+  
 
 <script>
 /* ---------- Registro del Service Worker (asegúrate que sw.js esté en la raíz o ajusta la ruta) ---------- */
