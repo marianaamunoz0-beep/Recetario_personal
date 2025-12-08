@@ -1,62 +1,81 @@
-/* =======================
-   SERVICE WORKER PWA
-========================= */
+//------------PROGRAMACION PRINCIPAL DE SERVICE WORKER-----------------------
 
-// Nombre y versión del caché
-const CACHE_NAME = "recetario-cache-v1";
+const { cache } = require("react");
 
-// Archivos a cachear
-const urlsToCache = [
-  "./",
-  "./index.html",
-  "./recetas.css",
-  "./main.js",
-  "./manifest.json",
-  "./imagenes/fav.png"
+// Asignar nombre y version de cache
+const CACHE_NAME= 'v1.1_cache_Mariana_Muñoz_PWA';
+
+//Ficheros a cachear en la App
+var urlsTocCache=[
+    './',
+    './index.html',
+    './manifest.json',
+    './recetas.css',
+    './sw.js'
+
 ];
 
-// INSTALACIÓN
-self.addEventListener("install", (event) => {
+//------------------------------------Evento de instalacion: cachear archivos
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(urlsToCache))
-      .then(() => self.skipWaiting())
+      .then(cache => {
+        return cache.addAll(urlsToCache);
+      })
+      .then(() => {
+        self.skipWaiting();
+      })
+      .catch(err => {
+        console.log('Error al cachear', err);
+      })
   );
 });
 
-// ACTIVACIÓN
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
+//siempre usas rutas relativas (./archivo.html, ./css/styles.css),
+//no absolutas (http://...)
+
+//cada vez que actualices archivos importantes, cambia la version del cache (v2_cache_...) para que el navegador descargue la nueva version
+
+//-----------------------------Evento de activacion: limpiar cache antiguo--------------
+
+self.addEventListener('activate', e =>{ // el evento activate se activa cuando el service worker toma el control
+    const cachewhitelist = [CACHE_NAME]; //lista blanca de cache que deben conservarse
+    e.waitUntil( //waitUntil() asegura que el service worker no se considere activo hasta que la promesa dentro de el se resuelva
+        caches.keys() //obtiene todas las claves (nombres) de las caches existentes
+        .then(cacheNames => { //una vez que se obtienen las claves se ejecuta esta funcion
+            return Promise.all( //promise.all() espera que todas las promesas dentro del array se resuelvan
+                cacheNames.map(cacheName => { //itera sobre cada nombre de cache
+                    if (cachewhitelist.indexOf(cacheName) === -1) { //si el nombre de la cache no esta en la lista blanca...
+                        return caches.delete(cacheName); //...elimina esa cache
+                    }
+                })
+            ); 
         })
-      )
-    )
-  );
-
-  self.clients.claim();
+        .then(() => {
+            self.clients.claim() //hace que el serive worker tome el control de todas las paginas bajo
+        })
+    );
 });
 
-// FETCH
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
+//----------------Evento fetch: responder con cache o red----------------
+self.addEventListener('fetch', e => { // el evento fetch se activa para cada solicitud 
+    e.repondWith( //repondWith() permite al servidor worker proporcionar una respuesta
+        caches.match(e.request) //busca en la cache una respuesta que coincidacon la 
+        .then(res => { //una vez que se obtiene la respuesta de la cache (si existe)
+            if (res) { //si se encontro una respuesta en la cache...
+                return res; //...devuelvela
+            }
+            return fetch(e.request); //si no se encontro en la cache, realizala la
+        })
+    );
 });
 
-// CLICK EN NOTIFICACIÓN
-self.addEventListener("notificationclick", (event) => {
-  event.notification.close();
-
-  const url = event.notification.data?.url || "/";
-
-  event.waitUntil(
-    clients.openWindow(url)
-  );
+//-----------------fin programacion principal de service worker---------------------
+self.addEventListener('message', event => {
+    if (event.data.action === 'skipWainting'){
+        self.skipWainting();
+    }
 });
+
+
+

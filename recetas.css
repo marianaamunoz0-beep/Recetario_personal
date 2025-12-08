@@ -6,7 +6,7 @@
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #fafafa;
+  background: #992727;
   color: #333;
   line-height: 1.6;
 }
@@ -15,7 +15,7 @@ body {
 .hero {
   text-align: center;
   padding: 40px 0;
-  background: #fff3e6;
+  background: #ca8031;
 }
 
 .hero h2 {
@@ -65,7 +65,7 @@ body {
 
 /* ======= HEADER ======= */
 header, #main-header {
-  background: #fff;
+  background: #ce2121;
   border-bottom: 1px solid #ccc;
   position: sticky;
   top: 0;
@@ -118,7 +118,7 @@ nav a:hover {
 
 /* ======= HERO / SLIDER ======= */
 .hero {
-  background: linear-gradient(135deg, #e73cb4, #5f5bdc);
+  background: linear-gradient(135deg, #e73c8c, #6edc5b);
   color: #fff;
   padding: 50px 0;
   text-align: center;
@@ -270,7 +270,7 @@ textarea {
 }
 input[type="text"]:focus,
 textarea:focus {
-  border-color: #b23;
+  border-color: rgb(34, 100, 187);
   outline: none;
 }
 textarea {
@@ -278,7 +278,7 @@ textarea {
   resize: vertical;
 }
 button {
-  background: #b23;
+  background: rgb(34, 118, 187);
   color: #fff;
   padding: 12px 16px;
   border: none;
@@ -288,7 +288,7 @@ button {
   transition: background 0.3s ease;
 }
 button:hover {
-  background: #a11;
+  background: rgb(17, 17, 170);
 }
 
 /* ======= FOOTER ======= */
@@ -549,6 +549,120 @@ nav {
 body {
   padding-top: 80px !important;
 }
+
+.btn-mini-small-1 {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #31FB00;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-mini-small-1:hover {
+  opacity: 0.8;
+}
+
+
+/* ====== HEADER BONITO Y GRANDE ====== */
+#main-header {
+  background: linear-gradient(90deg, #ff7b00, #ffb300);
+  padding: 18px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#main-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+}
+
+/* Título */
+#main-header h1 {
+  font-size: 35px;
+  color: white;
+  font-weight: 900;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+/* ====== MENÚ ====== */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  font-size: 20px;
+  padding: 10px 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  background: white;
+  color: #ff7b00;
+  transform: scale(1.1);
+}
+
+/* ====== INPUTS BONITOS ====== */
+input.input-mini,
+textarea.input-mini {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border: 2px solid #ff7b00;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 12px;
+  background: #fff8ef;
+  transition: .3s;
+}
+
+input.input-mini:focus,
+textarea.input-mini:focus {
+  border-color: #ffb300;
+  background: #ffffff;
+  box-shadow: 0 0 8px #ffb300;
+}
+
+/* TEXTAREA */
+.textarea-mini {
+  height: 120px;
+  resize: none;
+}
+
+/* ====== BOTÓN BONITO ====== */
+.btn-mini-small-1 {
+  width: 100%;
+  padding: 14px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  background: linear-gradient(90deg, #ff7b00, #ffb300);
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn-mini-small-1:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ffb300, #ff7b00);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
 
 
 

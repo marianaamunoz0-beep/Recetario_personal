@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="recetas.css">
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+  body{
+    background-color: aquamarine;
+  }
+</style>
   
 
 <script>
@@ -130,6 +137,48 @@ document.addEventListener('DOMContentLoaded', () => {
 </head>
 <body>
 
+  <script>
+const app = Vue.createApp({
+  data() {
+    return {
+      mensaje: "Recetario Personal (Vue activo)"
+    };
+  }
+});
+app.mount("body");
+</script>
+
+<script>
+const app1 = Vue.createApp({
+  data() {
+    return {
+      mensaje: "Recetario Personal (Vue activo)"
+    };
+  },
+
+  mounted() {
+    // 🔥 Cambiar estilo de TODOS los inputs al cargar la página
+    document.querySelectorAll("input, textarea, select").forEach(el => {
+      el.classList.add("vue-input");
+    });
+
+    // 🔥 Cambiar estilo de TODOS los botones
+    document.querySelectorAll("button").forEach(btn => {
+      btn.classList.add("vue-btn");
+    });
+
+    // 🔥 Cambiar estilo de TODOS los textos
+    document.querySelectorAll("h1, h2, h3, h4, p, label, a").forEach(tx => {
+      tx.classList.add("vue-text");
+    });
+  }
+});
+
+app1.mount("body");
+</script>
+
+
+
 <!-- ====== HEADER ====== -->
 <header id="main-header">
   <div class="container">
@@ -220,7 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <textarea id="instrucciones" name="instrucciones" placeholder="Instrucciones" class="input-mini textarea-mini"></textarea>
 
-    <button type="submit" class="btn-mini-small">Notificación</button>
+   <button type="submit" class="btn-mini-small-1">Guardar</button>
+
 
 
     
@@ -234,15 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
   <h3>Videos de Recetas</h3>
   <div class="videos-grid">
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/1APZ2a6M_j8" title="Ensalada de Quinoa" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://tres-estrellas.com/nuestras-recetas?utm_source=goa&utm_medium=cpc&utm_campaign=aon&utm_term=recetas-dulces&utm_content=keywords&gad_source=2&gad_campaignid=19646922868&gclid=Cj0KCQiAi9rJBhCYARIsALyPDttb25ib-giPHLUcnnDiG_Pjkkvy7ZTZcNIy1wH-Of0yfX7akBgd9NIaAunKEALw_wcB" title="Ensalada de Quinoa" frameborder="0" allowfullscreen></iframe>
       <p>Ensalada de Quinoa</p>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/KJ5eVd1sQZs" title="Tacos de Pollo" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://tres-estrellas.com/nuestras-recetas?utm_source=goa&utm_medium=cpc&utm_campaign=aon&utm_term=recetas-dulces&utm_content=keywords&gad_source=2&gad_campaignid=19646922868&gclid=Cj0KCQiAi9rJBhCYARIsALyPDttb25ib-giPHLUcnnDiG_Pjkkvy7ZTZcNIy1wH-Of0yfX7akBgd9NIaAunKEALw_wcB" title="Tacos de Pollo" frameborder="0" allowfullscreen></iframe>
       <p>Tacos de Pollo</p>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/3U1bRkZ3Yos" title="Smoothie Saludable" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://tres-estrellas.com/nuestras-recetas?utm_source=goa&utm_medium=cpc&utm_campaign=aon&utm_term=recetas-dulces&utm_content=keywords&gad_source=2&gad_campaignid=19646922868&gclid=Cj0KCQiAi9rJBhCYARIsALyPDttb25ib-giPHLUcnnDiG_Pjkkvy7ZTZcNIy1wH-Of0yfX7akBgd9NIaAunKEALw_wcB" title="Smoothie Saludable" frameborder="0" allowfullscreen></iframe>
       <p>Smoothie Saludable</p>
     </div>
   </div>
