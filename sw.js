@@ -11,7 +11,9 @@ var urlsTocCache=[
     './index.html',
     './manifest.json',
     './recetas.css',
-    './sw.js'
+    './sw.js',
+    './main.js'
+    
 
 ];
 
