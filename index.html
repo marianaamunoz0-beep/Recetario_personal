@@ -324,7 +324,7 @@ app1.mount("body");
 <!-- Registro del Service Worker -->
 <script>
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
+    navigator.serviceWorker.register("sw.js")
       .then(reg => console.log("Service Worker registrado:", reg.scope))
       .catch(err => console.error("Error en SW:", err));
   }
