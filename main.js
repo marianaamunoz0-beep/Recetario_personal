@@ -28,14 +28,12 @@ async function pedirPermiso() {
 }
 
 
-/* ============================================
-   MOSTRAR NOTIFICACIÓN AL ENVIAR LA RECETA
-============================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.querySelector('#nueva-receta form');
     if (!form) {
-        console.warn("Formulario de nueva receta no encontrado.");
+        console.warn("Formulario de nueva pieza no encontrado.");
         return;
     }
 
@@ -47,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const instrucciones = document.getElementById("instrucciones").value.trim();
 
         if (!nombre) {
-            alert("Debes escribir el nombre de la receta.");
+            alert("Debes escribir el nombre de la pieza.");
             return;
         }
 
@@ -72,20 +70,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // ==== NOTIFICACIÓN ====
         if (reg && reg.showNotification) {
-            reg.showNotification(`Nueva receta: ${nombre}`, opciones);
+            reg.showNotification(`Registro de refraccion: ${nombre}`, opciones);
         } else {
-            new Notification(`Nueva receta: ${nombre}`, opciones);
+            new Notification(`Registro de refraccion: ${nombre}`, opciones);
         }
 
         // ==== ENVIAR A WHATSAPP ====
         const numeroWhats = "2751105385"; // <-- CAMBIA AQUÍ
 
         const textoWhats =
-            "📘 *Nueva Receta Guardada*\n\n" +
-            "🍽 *Nombre:* " + nombre + "\n\n" +
-            "🧂 *Ingredientes:*\n" + (ingredientes || "—") + "\n\n" +
-            "👩‍🍳 *Instrucciones:*\n" + (instrucciones || "—") + "\n\n" +
-            "Enviado desde tu Recetario ✔️";
+            "*Nuevo registro guardado*\n\n" +
+            "*Nombre de la pieza:* " + nombre + "\n\n" +
+            "*Descripción:*\n" + (ingredientes || "—") + "\n\n" +
+            "*Precio:*\n" + (instrucciones || "—") + "\n\n" +
+            "Enviado desde tu Registro de refraccion ✔️";
 
         const urlWhats = "https://wa.me/" + numeroWhats + "?text=" + encodeURIComponent(textoWhats);
 

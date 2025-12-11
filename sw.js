@@ -63,8 +63,8 @@ self.addEventListener('push', e => {
 
     self.registration.showNotification(data.title || "Notificación", {
         body: data.body || "",
-        icon: "imagenes/fav.png",
-        badge: "imagenes/fav.png"
+        
+       
     });
 });
 

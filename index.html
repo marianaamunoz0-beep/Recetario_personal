@@ -8,11 +8,6 @@
 <meta name="theme-color" content="#ffffff">
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<style>
-  body{
-    background-color: rgba(255, 127, 225, 1);
-  }
-</style>
   
 
 <script>
@@ -74,8 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const notificationOptions = {
       body: cuerpo,
-      icon: '/imagenes/fav.png',           // ajusta ruta del icono
-      badge: '/imagenes/fav.png',
+      
       image: undefined,                    // opcional, pon URL si quieres imagen
       vibrate: [100, 50, 100],
       tag: 'recetario-nueva-receta',
@@ -87,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         instrucciones
       },
       actions: [
-        { action: 'abrir', title: 'Abrir Receta' },
+        { action: 'abrir', title: 'Abrir' },
         { action: 'compartir', title: 'Compartir' }
       ]
     };
@@ -114,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   <!-- Ícono de la app -->
-  <link rel="shortcut icon" href="imagenes/fav.png" type="image/x-icon">
+  <link rel="shortcut icon" href="" type="image/x-icon">
 
   <!-- Configuración de Meta etiquetas para PWA -->
   <meta name="theme-color" content="#31FB00">
@@ -124,13 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
   <!-- Meta etiquetas PWA para Apple -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="imagenes/fav.png">
-  <link rel="apple-touch-startup-image" href="imagenes/fav.png">
+  <link rel="apple-touch-icon" href="imagenes/">
+  <link rel="apple-touch-startup-image" href="imagenes/">
 
   <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
 
-  <title>Recetario Personal</title>
+  <title>Refraccionaria</title>
   <link rel="stylesheet" href="recetas.css">
 
   <link rel="stylesheet" href="recetas.css">
@@ -143,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const app = Vue.createApp({
   data() {
     return {
-      mensaje: "Recetario Personal (Vue activo)"
+      mensaje: "Refraccionaria (Vue activo)"
     };
   }
 });
@@ -154,7 +148,7 @@ app.mount("body");
 const app1 = Vue.createApp({
   data() {
     return {
-      mensaje: "Recetario Personal (Vue activo)"
+      mensaje: "Refraccionaria (Vue activo)"
     };
   },
 
@@ -191,9 +185,9 @@ app1.mount("body");
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#recetas">Recetas</a></li>
-        <li><a href="#ideas">Más Recetas</a></li>
-        <li><a href="#videos-recetas">Videos</a></li>
+        <li><a href="#recetas">Servicios</a></li>
+        <li><a href="#ideas">Productos</a></li>
+        
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -204,72 +198,71 @@ app1.mount("body");
 
 <!-- ====== HERO / SLIDER ====== -->
 <section class="hero" id="inicio">
-  <h2>Bienvenido a tu Recetario</h2>
+  <h2>Bienvenido a nuestra Refraccionaria</h2>
   <div class="carousel">
     <div class="slides">
-      <img src="imagenes/img1.jpeg" alt="Receta 1" width="200" height="120">
-      <img src="imagenes/img2.webp" alt="Receta 2" width="200" height="120">
-      <img src="imagenes/img3.jpeg" alt="Receta 3" width="200" height="120">
-      <img src="imagenes/img4.jpg" alt="Receta 4" width="200" height="120">
-      <img src="imagenes/img5.jpeg" alt="Receta 5" width="200" height="120">
-      <img src="imagenes/img6.jpeg" alt="Receta 6" width="200" height="120">
+      <img src="imagenes/r1.jpg" alt="Receta 1" width="200" height="120">
+      <img src="imagenes/r2.jpg" alt="Receta 2" width="200" height="120">
+      <img src="imagenes/r3.jpg" alt="Receta 3" width="200" height="120">
+      <img src="imagenes/r4.jpeg" alt="Receta 4" width="200" height="120">
+      <img src="imagenes/r1.jpg" alt="Receta 5" width="200" height="120">
+      <img src="imagenes/r2.jpg" alt="Receta 6" width="200" height="120">
     </div>
   </div>
 </section>
 
-<!-- ====== RECETAS GUARDADAS ====== -->
+<!-- ====== servicios ====== -->
 <section class="section" id="recetas">
-  <h3>Recetas Guardadas</h3>
+  <h3>Servicios</h3>
   <div class="grid">
     <div class="card">
-      <h4><a href="recetas/receta1.html">Receta 1</a></h4>
-      <p>Descripción breve de la Receta 1.</p>
+      <h4><a href="recetas/receta1.html">Servicios</a></h4>
+      <p>Mantenimiento general</p>
+<p>Cambio de llantas</p>
+<p> originales</p>
     </div>
-    <div class="card">
-      <h4><a href="recetas/receta2.html">Receta 2</a></h4>
-      <p>Descripción breve de la Receta 2.</p>
-    </div>
+    
   </div>
 </section>
 
 <!-- ====== MÁS IDEAS ====== -->
 <section class="section videos" id="ideas">
-  <h3>Otras Ideas</h3>
+  <h3>Productos</h3>
   <div class="grid">
     <div class="card">
       <div class="thumb">
-        <img src="imagenes/img1.jpeg" alt="Receta especial">
+        <img src="imagenes/r1.jpg" alt="Producto 1">
       </div>
-      <h4>Receta especial</h4>
-      <p>Pequeña explicación de la receta.</p>
+      <h4>Producto 1</h4>
+      <p>Llantas</p>
     </div>
     <div class="card">
       <div class="thumb">
-        <img src="imagenes/img2.webp" alt="Postre rápido">
+        <img src="imagenes/r4.jpeg" alt="Producto 2">
       </div>
-      <h4>Postre rápido</h4>
-      <p>Pequeña explicación de la receta.</p>
+      <h4>Producto 2</h4>
+      <p>Checador de Aire</p>
     </div>
     <div class="card">
       <div class="thumb">
-        <img src="imagenes/img3.jpeg" alt="Bebida refrescante">
+        <img src="imagenes/r2.jpg" alt="Producto 3">
       </div>
-      <h4>Bebida refrescante</h4>
-      <p>Pequeña explicación de la receta.</p>
+      <h4>Producto 3</h4>
+      <p>Pintura de carros</p>
     </div>
   </div>
 </section>
 <!-- ====== FORMULARIO NUEVA RECETA (REDUCIDO) ====== -->
 <section class="section" id="nueva-receta">
-  <h3 style="font-size: 16px; margin-bottom: 8px;">Agregar Nueva Receta</h3>
+  <h3 style="font-size: 16px; margin-bottom: 8px;">Registro de Refraccion</h3>
 
   <form action="#" method="POST" class="form-mini">
 
-    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la receta" class="input-mini">
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la pieza" class="input-mini">
 
-    <textarea id="ingredientes" name="ingredientes" placeholder="Ingredientes" class="input-mini textarea-mini"></textarea>
+    <textarea id="ingredientes" name="ingredientes" placeholder="Descripcion(codigo,vehiculo,cantidad)" class="input-mini textarea-mini"></textarea>
 
-    <textarea id="instrucciones" name="instrucciones" placeholder="Instrucciones" class="input-mini textarea-mini"></textarea>
+    <textarea id="instrucciones" name="instrucciones" placeholder="Precio" class="input-mini textarea-mini"></textarea>
 
    <button type="submit" class="btn-mini-small-1">Guardar</button>
 
@@ -281,24 +274,7 @@ app1.mount("body");
 </section>
 
 
-<!-- ====== VIDEOS DE RECETAS ====== -->
-<section class="section" id="videos-recetas">
-  <h3>Videos de Recetas</h3>
-  <div class="videos-grid">
-    <div class="video-card">
-      <iframe src="https://tres-estrellas.com/nuestras-recetas?utm_source=goa&utm_medium=cpc&utm_campaign=aon&utm_term=recetas-dulces&utm_content=keywords&gad_source=2&gad_campaignid=19646922868&gclid=Cj0KCQiAi9rJBhCYARIsALyPDttb25ib-giPHLUcnnDiG_Pjkkvy7ZTZcNIy1wH-Of0yfX7akBgd9NIaAunKEALw_wcB" title="Ensalada de Quinoa" frameborder="0" allowfullscreen></iframe>
-      <p>Ensalada de Quinoa</p>
-    </div>
-    <div class="video-card">
-      <iframe src="https://tres-estrellas.com/nuestras-recetas?utm_source=goa&utm_medium=cpc&utm_campaign=aon&utm_term=recetas-dulces&utm_content=keywords&gad_source=2&gad_campaignid=19646922868&gclid=Cj0KCQiAi9rJBhCYARIsALyPDttb25ib-giPHLUcnnDiG_Pjkkvy7ZTZcNIy1wH-Of0yfX7akBgd9NIaAunKEALw_wcB" title="Tacos de Pollo" frameborder="0" allowfullscreen></iframe>
-      <p>Tacos de Pollo</p>
-    </div>
-    <div class="video-card">
-      <iframe src="https://tres-estrellas.com/nuestras-recetas?utm_source=goa&utm_medium=cpc&utm_campaign=aon&utm_term=recetas-dulces&utm_content=keywords&gad_source=2&gad_campaignid=19646922868&gclid=Cj0KCQiAi9rJBhCYARIsALyPDttb25ib-giPHLUcnnDiG_Pjkkvy7ZTZcNIy1wH-Of0yfX7akBgd9NIaAunKEALw_wcB" title="Smoothie Saludable" frameborder="0" allowfullscreen></iframe>
-      <p>Smoothie Saludable</p>
-    </div>
-  </div>
-</section>
+
 
 <!-- formulario -->
 
